@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maramon Convention Chatbot - MaraMate</title>
+    <!-- Add Dialogflow Messenger Script -->
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    <style>
+        /* Custom CSS for Chatbot appearance */
+        df-messenger {
+            --df-messenger-bot-message-background: #1a73e8; /* Bot message background */
+            --df-messenger-user-message-background: #34b7f1; /* User message background */
+            --df-messenger-button-titlebar-color: #1a73e8; /* Title bar color */
+            --df-messenger-chat-background-color: #ffffff; /* Chat background color */
+            --df-messenger-button-text-color: #ffffff; /* Button text color */
+            --df-messenger-font-color: #000000; /* Font color */
+            width: 350px;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Dialogflow Messenger -->
+    <df-messenger
+        intent="WELCOME"
+        chat-title="MaraMate"
+        agent-id="ca885922-8572-47c4-b26d-d9905dac8104"
+        language-code="en">
+    </df-messenger>
+</body>
+</html>
