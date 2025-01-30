@@ -18,9 +18,161 @@
             width: 350px;
             height: 500px;
         }
+
+        body {
+            background-image: url('https://github.com/Aswathy-04/MaraMate/blob/main/pro%205.jpg?raw=true');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 1.5em;
+        }
+
+        .carousel {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+            height: 300px;
+            margin: 20px 0;
+        }
+
+        .carousel .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .schedule, .contact {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            margin: 20px;
+            border-radius: 10px;
+        }
+
+        .schedule h2, .contact h2 {
+            text-align: center;
+        }
+
+        .schedule ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .schedule li {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        #map {
+            width: 100%;
+            height: 300px;
+            background: #fff;
+        }
+
+        /* Fade In Animation */
+        .fade-in {
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Slide In Animation */
+        .slide-in {
+            animation: slideIn 1s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Bounce Animation */
+        .bounce {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-30px);
+            }
+            60% {
+                transform: translateY(-15px);
+            }
+        }
+
+        /* Rotate Animation */
+        .rotate {
+            animation: rotate 3s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
     </style>
 </head>
 <body>
+    <header class="fade-in">
+        <h1>Maramon Convention</h1>
+        <p>Welcome to the largest Christian gathering in Asia, held annually at Maramon.</p>
+    </header>
+
+    <section class="carousel slide-in">
+        <div class="slides">
+            <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%201.jpg?raw=true" alt="Maramon Convention Image 1">
+            <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%202.jpg?raw=true" alt="Maramon Convention Image 2">
+            <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%203.jpg?raw=true" alt="Maramon Convention Image 3">
+        </div>
+    </section>
+
+    <section class="contact">
+        <h2>Contact Information</h2>
+        <p>Email: info@maramonconvention.com</p>
+        <p>Phone: +91 12345 67890</p>
+        <div id="map"></div>
+    </section>
+
     <!-- Dialogflow Messenger -->
     <df-messenger
         intent="WELCOME"
@@ -28,5 +180,24 @@
         agent-id="ca885922-8572-47c4-b26d-d9905dac8104"
         language-code="en">
     </df-messenger>
+
+    <script>
+        // Example JavaScript for carousel functionality
+        let currentIndex = 0;
+        const slides = document.querySelector('.carousel .slides');
+        const totalSlides = slides.children.length;
+
+        function showSlide(index) {
+            const offset = -index * 100;
+            slides.style.transform = translateX(${offset}%);
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            showSlide(currentIndex);
+        }
+
+        setInterval(nextSlide, 3000); // Change slide every 3 seconds
+    </script>
 </body>
 </html>
