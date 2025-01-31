@@ -17,6 +17,7 @@
             width: 350px;
             height: 500px;
         }
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -73,7 +74,6 @@
             width: 100%;
             height: 400px;
             overflow: hidden;
-            background-color: #000;  /* Dark background during transition */
         }
 
         .hero-images {
@@ -108,16 +108,6 @@
             cursor: pointer;
         }
 
-        /* Leader Image Frame (Portrait Rectangle) */
-        .leader-image {
-            width: 200px; /* Set width */
-            height: 300px; /* Set height for portrait */
-            object-fit: cover; /* Ensures the image fills the container without stretching */
-            border-radius: 10px; /* Optional: For rounded corners */
-            border: 2px solid #1a73e8; /* Optional: Add a border around the image */
-            margin: 20px;
-        }
-
         /* Footer */
         .footer-links {
             display: flex;
@@ -138,6 +128,14 @@
             width: 100%;
             height: 200px;
         }
+
+        /* Leader image style */
+        .leader-image {
+            width: 200px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 5px; /* Optional: Adjust the border-radius as needed */
+        }
     </style>
 </head>
 <body>
@@ -155,10 +153,10 @@
     <div class="hero">
         <div class="hero-images">
             <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%204.jpg?raw=true" alt="Convention Crowd">
-            <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%202.jpg?raw=true" alt="Key Moments">
-            <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%201.jpg?raw=true" alt="Scenic View of Maramon">
             <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%203.jpg?raw=true" alt="Key Moments">
-            <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%209.jpg?raw=true" alt="Key Moments">
+            <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%202.jpg?raw=true" alt="Key Moments">
+            <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%209.jpg?raw=true" alt="Scenic View of Maramon">
+            <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%201.jpg?raw=true" alt="Key Moments">
             <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%2010.jpg?raw=true" alt="Scenic View of Maramon">
         </div>
         <div class="hero-text">
@@ -191,6 +189,18 @@
                 <li>Instant help for contact info, travel, and more</li>
                 <li>Guiding you through the event schedule</li>
             </ul>
+        </section>
+
+        <section id="leader" class="section leader">
+            <div class="leader-info">
+                <img src="https://raw.githubusercontent.com/Aswathy-04/MaraMate/main/pro%207.jpg" alt="Church Leader" class="leader-img">
+                <div class="leader-details">
+                    <h2>Church Leader</h2>
+                    <p><strong>Name:</strong> Rev. Dr. Theodosius Mar Thoma</p>
+                    <p><strong>Title:</strong> Metropolitan</p>
+                    <p><strong>Biography:</strong> His Grace The Most Rev. Dr. Theodosius Mar Thoma Metropolitan leads the Mar Thoma Church with a mission of love, faith, and unity. His contributions to the community are vast, and he plays a key role in organizing the Maramon Convention, fostering fellowship and spiritual growth.</p>
+                </div>
+            </div>
         </section>
 
         <section id="contact" class="section">
@@ -231,11 +241,7 @@
         const totalImages = images.length;
 
         function moveCarousel() {
-            currentIndex++;
-            if (currentIndex == totalImages) {
-                currentIndex = 0;  // Reset to first image after last
-            }
-
+            currentIndex = (currentIndex + 1) % totalImages;
             document.querySelector('.hero-images').style.transform = `translateX(-${currentIndex * 100}%)`;
         }
 
@@ -243,5 +249,3 @@
     </script>
 </body>
 </html>
-
-
