@@ -8,12 +8,12 @@
     <style>
         /* Custom CSS for Chatbot appearance */
         df-messenger {
-            --df-messenger-bot-message-background: #1a73e8; /* Bot message background */
-            --df-messenger-user-message-background: #34b7f1; /* User message background */
-            --df-messenger-button-titlebar-color: #1a73e8; /* Title bar color */
-            --df-messenger-chat-background-color: #ffffff; /* Chat background color */
-            --df-messenger-button-text-color: #ffffff; /* Button text color */
-            --df-messenger-font-color: #000000; /* Font color */
+            --df-messenger-bot-message-background: #1a73e8;
+            --df-messenger-user-message-background: #34b7f1;
+            --df-messenger-button-titlebar-color: #1a73e8;
+            --df-messenger-chat-background-color: #ffffff;
+            --df-messenger-button-text-color: #ffffff;
+            --df-messenger-font-color: #000000;
             width: 350px;
             height: 500px;
         }
@@ -78,14 +78,22 @@
         }
 
         .hero-images {
-            display: flex;
-            transition: transform 1s ease-in-out;
+            position: relative;
+            width: 100%;
+            height: 400px;
         }
 
-        .hero img {
+        .hero-images img {
+            position: absolute;
             width: 100%;
             height: 400px;
             object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .hero-images img.active {
+            opacity: 1;
         }
 
         .hero-text {
@@ -131,10 +139,10 @@
             align-items: center;
         }
         .leader img {
-            border-radius: 5px; /* Remove rounded corners */
-            width: 150px;  /* Adjust width */
-            height: 210px; /* Adjust height */
-            object-fit: cover; /* Ensures the image fills the frame without distortion */
+            border-radius: 5px;
+            width: 150px;
+            height: 210px;
+            object-fit: cover;
         }
     </style>
 </head>
@@ -168,7 +176,7 @@
     <div class="container">
         <section id="home" class="section">
             <h2>MaraMate</h2>
-            <p>Your virtual assistant for the Maramon Convention, the largest Christian gathering in Asia, held annually in Maramon. Let MaraMate guide you through event details, schedules, and more!</p>
+            <p>Your virtual assistant for the Maramon Convention, the largest Christian gathering in Asia.</p>
         </section>
 
         <section id="about" class="section">
@@ -198,7 +206,7 @@
                     <h2>Church Leader</h2>
                     <p><strong>Name:</strong> Rev. Dr. Theodosius Mar Thoma</p>
                     <p><strong>Title:</strong> Metropolitan</p>
-                    <p><strong>Biography:</strong> His Grace The Most Rev. Dr. Theodosius Mar Thoma Metropolitan leads the Mar Thoma Church with a mission of love, faith, and unity. His contributions to the community are vast, and he plays a key role in organizing the Maramon Convention, fostering fellowship and spiritual growth.</p>
+                    <p><strong>Biography:</strong> His Grace The Most Rev. Dr. Theodosius Mar Thoma Metropolitan leads the Mar Thoma Church.</p>
                 </div>
             </div>
         </section>
@@ -224,16 +232,18 @@
     </footer>
 
     <script>
-        let currentIndex = 0;
-        const images = document.querySelectorAll('.hero-images img');
-        const totalImages = images.length;
+        let index = 0;
+        const slides = document.querySelectorAll('.hero-images img');
 
-        function moveCarousel() {
-            currentIndex = (currentIndex + 1) % totalImages;
-            document.querySelector('.hero-images').style.transform = `translateX(-${currentIndex * 100}%)`;
+        slides[index].classList.add('active');
+
+        function showNextSlide() {
+            slides[index].classList.remove('active');
+            index = (index + 1) % slides.length;
+            slides[index].classList.add('active');
         }
 
-        setInterval(moveCarousel, 4000);  // Change image every 4 seconds
+        setInterval(showNextSlide, 4000);
     </script>
 </body>
 </html>
