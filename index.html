@@ -120,18 +120,39 @@
         }
 
         /* Featured Section */
+        /* Leader Section */
         .leader {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+
+        .leader-info {
             display: flex;
             align-items: center;
         }
 
-        .leader img {
+        .leader-img {
             border-radius: 50%;
             margin-right: 20px;
             width: 150px;
             height: 150px;
         }
 
+        .leader-details {
+            max-width: 600px;
+        }
+
+        .leader-details h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .leader-details p {
+            font-size: 1em;
+            line-height: 1.5;
+        }
         /* Footer */
         .footer-links {
             display: flex;
@@ -210,15 +231,17 @@
         </section>
 
         <section id="leader" class="section leader">
-            <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%207.jpg?raw=true" alt="Church Leader">
-            <div>
-                <h2>Church Leader</h2>
-                <p><strong>Name:</strong> Rev. Dr. Theodosius Mar Thoma</p>
-                <p><strong>Title:</strong> Metropolitan</p>
-                <p><strong>Biography:</strong> His Grace The Most Rev. Dr. Theodosius Mar Thoma Metropolitan leads the Mar Thoma Church with a mission of love, faith, and unity. His contributions to the community are vast, and he plays a key role in organizing the Maramon Convention, fostering fellowship and spiritual growth.</p>
+            <div class="leader-info">
+                <img src="https://raw.githubusercontent.com/Aswathy-04/MaraMate/main/pro%207.jpg" alt="Church Leader" class="leader-img">
+                <div class="leader-details">
+                    <h2>Church Leader</h2>
+                    <p><strong>Name:</strong> Rev. Dr. Theodosius Mar Thoma</p>
+                    <p><strong>Title:</strong> Metropolitan</p>
+                    <p><strong>Biography:</strong> His Grace The Most Rev. Dr. Theodosius Mar Thoma Metropolitan leads the Mar Thoma Church with a mission of love, faith, and unity. His contributions to the community are vast, and he plays a key role in organizing the Maramon Convention, fostering fellowship and spiritual growth.</p>
+                </div>
             </div>
         </section>
-
+        
         <section id="contact" class="section">
             <h2>Contact Us</h2>
             <form action="submit_contact_form" method="post">
