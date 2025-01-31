@@ -131,11 +131,15 @@
         }
 
         /* Leader image style */
-        .leader-image {
-            width: 10px !important;
-            height: 20px !important;
-            object-fit: cover;
-            border-radius: 5px; /* Optional: Adjust the border-radius as needed */
+        .leader {
+            display: flex;
+            align-items: center;
+        }
+        .leader img {
+            border-radius: 0; /* Remove rounded corners */
+            width: 120px;  /* Adjust width */
+            height: 180px; /* Adjust height */
+            object-fit: cover; /* Ensures the image fills the frame without distortion */
         }
     </style>
 </head>
