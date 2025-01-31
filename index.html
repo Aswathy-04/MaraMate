@@ -222,21 +222,12 @@
         const totalImages = images.length;
 
         function moveCarousel() {
-            // Move to the next image
-            currentIndex = (currentIndex + 1) % totalImages;
-
-            // If we reach the last image, reset the position to the first image without transition
-            if (currentIndex === 0) {
-                document.querySelector('.hero-images').style.transition = 'none';
-                document.querySelector('.hero-images').style.transform = `translateX(0%)`;
-
-                // Force the reflow to reset the transition
-                setTimeout(() => {
-                    document.querySelector('.hero-images').style.transition = 'transform 1s ease-in-out';
-                }, 50);
-            } else {
-                document.querySelector('.hero-images').style.transform = `translateX(-${currentIndex * 100}%)`;
+            currentIndex++;
+            if (currentIndex >= totalImages) {
+                currentIndex = 0;  // Reset to first image after last
             }
+
+            document.querySelector('.hero-images').style.transform = `translateX(-${currentIndex * 100}%)`;
         }
 
         setInterval(moveCarousel, 4000);  // Change image every 4 seconds
