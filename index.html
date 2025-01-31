@@ -108,6 +108,16 @@
             cursor: pointer;
         }
 
+        /* Leader Image Frame (Portrait Rectangle) */
+        .leader-image {
+            width: 200px; /* Set width */
+            height: 300px; /* Set height for portrait */
+            object-fit: cover; /* Ensures the image fills the container without stretching */
+            border-radius: 10px; /* Optional: For rounded corners */
+            border: 2px solid #1a73e8; /* Optional: Add a border around the image */
+            margin: 20px;
+        }
+
         /* Footer */
         .footer-links {
             display: flex;
@@ -154,7 +164,6 @@
         <div class="hero-text">
             <h1>Welcome to MaraMate</h1>
             <p>Your Virtual Assistant: MaraMate</p>
-            <button onclick="window.location.href='#chatbot'">Chat with MaraMate</button>
         </div>
     </div>
 
@@ -223,7 +232,7 @@
 
         function moveCarousel() {
             currentIndex++;
-            if (currentIndex >= totalImages) {
+            if (currentIndex == totalImages) {
                 currentIndex = 0;  // Reset to first image after last
             }
 
