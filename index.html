@@ -43,6 +43,7 @@
             font-style: italic;
         }
 
+        /* Navigation Bar */
         nav {
             display: flex;
             justify-content: center;
@@ -55,33 +56,37 @@
             text-decoration: none;
             text-align: center;
             font-family: 'Verdana', sans-serif;
+            position: relative;
         }
 
         nav a:hover {
             background-color: #555;
         }
 
-        .container {
-            padding: 20px;
+        nav a:hover .dropdown-content {
+            display: block;
         }
 
-        .section {
-            background-color: #fff;
-            margin: 20px 0;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            font-family: 'Georgia', serif;
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #444;
+            min-width: 200px;
+            z-index: 1;
         }
 
-        footer {
-            background-color: #333;
+        .dropdown-content a {
             color: #fff;
-            text-align: center;
-            padding: 10px 0;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
         }
 
-        /* Hero Section */
+        .dropdown-content a:hover {
+            background-color: #555;
+        }
+
         .hero {
             position: relative;
             width: 100%;
@@ -99,8 +104,8 @@
         .hero-images img {
             position: absolute;
             width: 100%;
-            height: 450px;
-            object-fit: fill;
+            height: 100%;
+            object-fit: cover;
             opacity: 0;
             transition: opacity 1s ease-in-out;
         }
@@ -126,7 +131,51 @@
             font-size: 1.5em;
         }
 
-        /* Footer */
+        .container {
+            padding: 20px;
+        }
+
+        .section {
+            background-color: #fff;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-family: 'Georgia', serif;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .countdown {
+            font-size: 2em;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+        }
+
+        .countdown .time-block {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            margin: 0 5px;
+            font-size: 2.5em;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
         .footer-links {
             display: flex;
             justify-content: space-around;
@@ -157,23 +206,23 @@
 
         /* Specific Styles for Each Section */
         #about {
-            background-color: #e0f7fa;
-            font-family: 'Courier New', monospace;
+            background-color: #faf0f0;
         }
 
         #bishop {
-            background-color: #ffeb3b;
-            font-family: 'Times New Roman', Times, serif;
+            background-color: #faf0f0;
         }
 
         #contact {
-            background-color: #c8e6c9;
-            font-family: 'Lucida Console', Monaco, monospace;
+            background-color: #faf0f0;
         }
 
         #gallery {
-            background-color: #ffe0b2;
-            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #faf0f0;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
@@ -192,7 +241,7 @@
 
     <div class="hero">
         <div class="hero-images">
-            <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%209.jpg?raw=true" alt="Convention Crowd">
+            <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%2019.jpg?raw=true.jpg" alt="Convention Crowd" class="active">
             <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%202.jpg?raw=true" alt="Key Moments">
             <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%203.jpg?raw=true" alt="Key Moments">
             <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%204.jpg?raw=true" alt="Scenic View of Maramon">
@@ -207,14 +256,14 @@
 
     <div class="container">
         <section id="about" class="section">
-            <h2>About Us</h2>
+            <center><h2>About Us</h2></center>
             <p>Learn more about MaraMate and how it enhances your Maramon Convention experience.</p>
         </section>
 
         <section id="bishop" class="section">
-            <h2>Bishop</h2>
+            <center><h2>Bishop</h2></center>
             <div class="leader">
-                <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%207.jpg?raw=true" alt="Church Leader">
+                <img src="https://raw.githubusercontent.com/Aswathy-04/MaraMate/main/pro%207.jpg" alt="Church Leader">
                 <div class="leader-info">
                     <h3>His Grace The Most Rev. Dr. Theodosius Mar Thoma Metropolitan</h3>
                     <p><strong>Title:</strong> Metropolitan</p>
@@ -223,18 +272,26 @@
             </div>
         </section>
 
-        <section id="contact" class="section">
-            <h2>Contact Us</h2>
-            <p><strong>Email:</strong> example@info.com</p>
-            <p><strong>Phone:</strong> +91 12345 67890</p>
-            <p><strong>Address:</strong> Maramon Convention, Kerala, India</p>
+        <section id="highlights" class="section">
+            <center><h2>Event Highlights</h2></center>
+            <p>Get a sneak peek at the most anticipated moments during the Maramon Convention.</p>
+            <ul>
+                <li>Keynote speeches</li>
+                <li>Cultural performances</li>
+                <li>Worship sessions</li>
+            </ul>
+        </section>
+
+        <section id="countdown" class="section">
+            <center><h2>Countdown to Maramon Convention</h2></center>
+            <div class="countdown" id="countdown"></div>
         </section>
 
         <section id="gallery" class="section">
-            <h2>Gallery</h2>
+            <center><h2>Gallery</h2></center>
             <p>Explore the key moments of the Maramon Convention.</p>
             <div class="hero-images">
-                <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%209.jpg?raw=true" alt="Convention Crowd">
+                <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%2019.jpg?raw=true.jpg" alt="Convention Crowd">
                 <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%202.jpg?raw=true" alt="Key Moments">
                 <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%203.jpg?raw=true" alt="Key Moments">
                 <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%204.jpg?raw=true" alt="Scenic View of Maramon">
@@ -243,27 +300,11 @@
             </div>
         </section>
 
-        <section id="content" role="main">
-            <div class="welcome-outer">
-                <div class="container">
-                    <div class="wrapper">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="welcome-inner">
-                                    <div class="common-header">
-                                        <h3>Welcome to Malankara Mar Thoma Syrian Church</h3>
-                                        <span><img src="https://marthoma.in/wp-content/themes/marthoma-new/images/blue-arrow.png" alt="images"></span>
-                                    </div>
-                                    <p style="text-align: justify;">Our Church, we  believe to, have been founded by Saint Thomas (Mar Thoma), one of the twelve disciples of Jesus Christ, and known by the name of the Apostle, in the year AD 52, Mar Thoma Syrian Church of Malabar is one of the oldest denominations of Christianity. The Church defines itself as &#8220;Apostolic in origin, Universal in nature, Biblical in faith, Evangelical in principle, Ecumenical in outlook, Oriental in worship, Democratic in function, and Episcopal in character. Headquartered at Thiruvalla, Kerala,India, the church has over 1.6 million (approx) followers across the globe.</p>
-                                    <div class="read-more-outer">
-                                        <a href="https://marthoma.in/the-church/overview/" class="read-more">Read More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <section id="contact" class="section">
+            <center><h2>Contact Us</h2></center>
+            <p><strong>Email:</strong> example@info.com</p>
+            <p><strong>Phone:</strong> +91 12345 67890</p>
+            <p><strong>Address:</strong> Maramon Convention, Kerala, India</p>
         </section>
     </div>
 
@@ -280,18 +321,40 @@
     </footer>
 
     <script>
-        let index = 0;
-        const slides = document.querySelectorAll('.hero-images img');
+        // Countdown Timer
+        const countdownDate = new Date("February 9, 2025 00:00:00").getTime();
 
-        slides[index].classList.add('active');
+        const countdownFunction = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
 
-        function showNextSlide() {
-            slides[index].classList.remove('active');
-            index = (index + 1) % slides.length;
-            slides[index].classList.add('active');
-        }
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        setInterval(showNextSlide, 4000);
+            document.getElementById("countdown").innerHTML = `
+                <span class="time-block">${days}d</span>
+                <span class="time-block">${hours}h</span>
+                <span class="time-block">${minutes}m</span>
+                <span class="time-block">${seconds}s</span>
+            `;
+
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                document.getElementById("countdown").innerHTML = "Event has started!";
+            }
+        }, 1000);
+
+        // Scroll Animation
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                if (section.getBoundingClientRect().top < window.innerHeight - 100) {
+                    section.classList.add('visible');
+                }
+            });
+        });
     </script>
 </body>
 </html>
