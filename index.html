@@ -83,7 +83,7 @@
 
         /* Hero Section */
         .hero {
-            position: absolute;
+            position: static;
             width: 60%;
             height: 60%;
             overflow: hidden;
@@ -92,7 +92,7 @@
 
         /* Image Slider */
         .hero-images {
-            position: absolute;
+            position: static;
             width: 100%;
             height: 100%;
             display: flex; /* To arrange images side by side */
@@ -103,7 +103,7 @@
             height: 100%;
             object-fit: cover;
             opacity: 0;
-            transition: opacity 1s ease-in-out;
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
         }
 
         /* Active class for images */
@@ -115,7 +115,6 @@
         .arrow {
             position: absolute;
             top: 50%;
-            transform: translateY(-50%);
             font-size: 2em;
             color: white;
             background-color: rgba(0, 0, 0, 0.5);
