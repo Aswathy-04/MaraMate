@@ -159,6 +159,16 @@
             text-align: center;
         }
 
+        .countdown .time-block {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            margin: 0 5px;
+            font-size: 2.5em;
+            border-radius: 5px;
+        }
+
         footer {
             background-color: #333;
             color: #fff;
@@ -323,7 +333,12 @@
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            document.getElementById("countdown").innerHTML = `
+                <span class="time-block">${days}d</span>
+                <span class="time-block">${hours}h</span>
+                <span class="time-block">${minutes}m</span>
+                <span class="time-block">${seconds}s</span>
+            `;
 
             if (distance < 0) {
                 clearInterval(countdownFunction);
