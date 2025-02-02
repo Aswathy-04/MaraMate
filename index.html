@@ -43,6 +43,7 @@
             font-style: italic;
         }
 
+        /* Navigation Bar */
         nav {
             display: flex;
             justify-content: center;
@@ -55,33 +56,37 @@
             text-decoration: none;
             text-align: center;
             font-family: 'Verdana', sans-serif;
+            position: relative;
         }
 
         nav a:hover {
             background-color: #555;
         }
 
-        .container {
-            padding: 20px;
+        nav a:hover .dropdown-content {
+            display: block;
         }
 
-        .section {
-            background-color: #fff;
-            margin: 20px 0;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            font-family: 'Georgia', serif;
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #444;
+            min-width: 200px;
+            z-index: 1;
         }
 
-        footer {
-            background-color: #333;
+        .dropdown-content a {
             color: #fff;
-            text-align: center;
-            padding: 10px 0;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
         }
 
-        /* Hero Section */
+        .dropdown-content a:hover {
+            background-color: #555;
+        }
+
         .hero {
             position: relative;
             width: 100%;
@@ -126,7 +131,35 @@
             font-size: 1.5em;
         }
 
-        /* Footer */
+        .container {
+            padding: 20px;
+        }
+
+        .section {
+            background-color: #fff;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-family: 'Georgia', serif;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        /* Footer Links */
         .footer-links {
             display: flex;
             justify-content: space-around;
@@ -158,22 +191,23 @@
         /* Specific Styles for Each Section */
         #about {
             background-color: #e0f7fa;
-            font-family: 'Courier New', monospace;
         }
 
         #bishop {
             background-color: #ffeb3b;
-            font-family: 'Times New Roman', Times, serif;
         }
 
         #contact {
             background-color: #c8e6c9;
-            font-family: 'Lucida Console', Monaco, monospace;
         }
 
         #gallery {
             background-color: #ffe0b2;
-            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
@@ -242,29 +276,6 @@
                 <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%2010.jpg?raw=true" alt="Scenic View of Maramon">
             </div>
         </section>
-
-        <section id="content" role="main">
-            <div class="welcome-outer">
-                <div class="container">
-                    <div class="wrapper">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="welcome-inner">
-                                    <div class="common-header">
-                                        <h3>Welcome to Malankara Mar Thoma Syrian Church</h3>
-                                        <span><img src="https://marthoma.in/wp-content/themes/marthoma-new/images/blue-arrow.png" alt="images"></span>
-                                    </div>
-                                    <p style="text-align: justify;">Our Church, we  believe to, have been founded by Saint Thomas (Mar Thoma), one of the twelve disciples of Jesus Christ, and known by the name of the Apostle, in the year AD 52, Mar Thoma Syrian Church of Malabar is one of the oldest denominations of Christianity. The Church defines itself as &#8220;Apostolic in origin, Universal in nature, Biblical in faith, Evangelical in principle, Ecumenical in outlook, Oriental in worship, Democratic in function, and Episcopal in character. Headquartered at Thiruvalla, Kerala,India, the church has over 1.6 million (approx) followers across the globe.</p>
-                                    <div class="read-more-outer">
-                                        <a href="https://marthoma.in/the-church/overview/" class="read-more">Read More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
     </div>
 
     <!-- Dialogflow Messenger -->
@@ -292,6 +303,17 @@
         }
 
         setInterval(showNextSlide, 4000);
+
+        // Scroll Animation
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                if (section.getBoundingClientRect().top < window.innerHeight - 100) {
+                    section.classList.add('visible');
+                }
+            });
+        });
     </script>
 </body>
 </html>
+
