@@ -13,6 +13,9 @@
             padding: 0;
             background: url('https://github.com/Aswathy-04/MaraMate/blob/main/pro.jpg?raw=true') no-repeat center center fixed;
             background-size: cover;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         /* Header */
@@ -80,6 +83,8 @@
         /* Section Styling */
         .container {
             padding: 20px;
+            flex-grow: 1;
+            overflow: auto;
         }
 
         .section {
@@ -98,9 +103,10 @@
         }
 
         .hero-images img {
-            width: auto;
-            height: 100%;
-            object-fit: contain;
+            width: 100%; /* Make the width 100% of its container */
+            height: auto; /* Adjust the height to maintain the aspect ratio */
+            object-fit: contain; /* Ensure the image maintains its aspect ratio */
+            max-height: 400px; /* Limit the height to avoid stretching */
             transition: opacity 1s ease-in-out;
             opacity: 0;
         }
@@ -160,6 +166,7 @@
             color: #fff;
             text-align: center;
             padding: 10px 0;
+            margin-top: auto; /* Push footer to the bottom */
         }
 
         /* Contact Section */
@@ -216,11 +223,11 @@
             <div class="hero">
                 <div class="hero-images">
                     <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%209.jpg?raw=true" alt="Convention Crowd" class="active">
-                    <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%202.jpg?raw=true" alt="Key Moments">
-                    <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%203.jpg?raw=true" alt="Key Moments">
-                    <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%204.jpg?raw=true" alt="Scenic View of Maramon">
-                    <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%201.jpg?raw=true" alt="Key Moments">
-                    <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%2010.jpg?raw=true" alt="Scenic View of Maramon">
+                    <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%202.jpg?raw=true" alt="Key Moments" class="active">
+                    <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%203.jpg?raw=true" alt="Key Moments" class="active">
+                    <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%204.jpg?raw=true" alt="Scenic View of Maramon" class="active">
+                    <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%201.jpg?raw=true" alt="Key Moments" class="active">
+                    <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%2010.jpg?raw=true" alt="Scenic View of Maramon" class="active">
                 </div>
                 <div class="arrow left-arrow" onclick="moveSlide(-1)">&#10094;</div>
                 <div class="arrow right-arrow" onclick="moveSlide(1)">&#10095;</div>
@@ -270,3 +277,4 @@
     </script>
 </body>
 </html>
+
