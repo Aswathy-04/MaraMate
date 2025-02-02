@@ -6,29 +6,20 @@
     <title>MaraMate</title>
     <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
     <style>
-        /* Custom CSS for Chatbot appearance */
-        df-messenger {
-            --df-messenger-bot-message-background: #1a73e8;
-            --df-messenger-user-message-background: #34b7f1;
-            --df-messenger-button-titlebar-color: #1a73e8;
-            --df-messenger-chat-background-color: #ffffff;
-            --df-messenger-button-text-color: #ffffff;
-            --df-messenger-font-color: #000000;
-            width: 350px;
-            height: 500px;
-        }
-
+        /* General Body and Background */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background: url('https://github.com/Aswathy-04/MaraMate/blob/main/pro%209.jpg?raw=true') no-repeat center center fixed;
+            background-size: cover;
         }
 
+        /* Header */
         header {
-            background-color: #333;
+            background-color: rgba(0, 0, 0, 0.7);
             color: #fff;
-            padding: 10px 0;
+            padding: 20px 0;
             text-align: center;
         }
 
@@ -43,10 +34,13 @@
             font-style: italic;
         }
 
+        /* Navigation Bar */
         nav {
             display: flex;
             justify-content: center;
             background-color: #444;
+            position: sticky;
+            top: 0;
         }
 
         nav a {
@@ -61,57 +55,60 @@
             background-color: #555;
         }
 
+        /* Hero Section with Image and Text */
+        .hero {
+            position: relative;
+            height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('https://github.com/Aswathy-04/MaraMate/blob/main/pro%209.jpg?raw=true');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+
+        .hero p {
+            font-size: 1.5em;
+        }
+
+        /* Section Styling */
         .container {
             padding: 20px;
         }
 
         .section {
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.8);
             margin: 20px 0;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            font-family: 'Georgia', serif;
         }
 
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-        }
-
-        /* Hero Section */
-        .hero {
-            position: static;
-            width: 60%;
-            height: 60%;
-            overflow: hidden;
-            background-color: #000;
-        }
-
-        /* Image Slider */
+        /* Hero Image Slider */
         .hero-images {
-            position: static;
-            width: 100%;
-            height: 100%;
-            display: flex; /* To arrange images side by side */
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
         }
 
         .hero-images img {
-            width: 100%;
+            width: auto;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
+            transition: opacity 1s ease-in-out;
             opacity: 0;
-            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
         }
 
-        /* Active class for images */
         .hero-images img.active {
             opacity: 1;
         }
 
-        /* Navigation Arrows */
         .arrow {
             position: absolute;
             top: 50%;
@@ -131,93 +128,69 @@
             right: 10px;
         }
 
-        .hero-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: #fff;
-            text-align: center;
-        }
-
-        .hero-text h1 {
-            font-size: 2.5em;
-        }
-
-        .hero-text p {
-            font-size: 1.5em;
-        }
-
-        /* Footer */
-        .footer-links {
-            display: flex;
-            justify-content: space-around;
-            padding: 20px 0;
-        }
-
-        .footer-links a {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        .footer-links a:hover {
-            text-decoration: underline;
-        }
-
-        /* Leader image style */
+        /* Bishop Section with Bubble */
         .leader {
             display: flex;
             align-items: center;
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
         }
 
         .leader img {
-            border-radius: 5px;
             width: 150px;
             height: 210px;
             object-fit: cover;
+            border-radius: 5px;
+            margin-right: 20px;
         }
 
-        /* Specific Styles for Each Section */
-        #about {
-            background-color: #e0f7fa;
-            font-family: 'Courier New', monospace;
+        .leader-info h3 {
+            margin-top: 0;
         }
 
-        #bishop {
-            background-color: #e0f7fa;
-            font-family: 'Times New Roman', Times, serif;
+        .leader-info p {
+            font-size: 1.1em;
         }
 
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        /* Contact Section */
         #contact {
-            background-color: #e0f7fa;
-            font-family: 'Lucida Console', Monaco, monospace;
+            text-align: center;
+            padding: 20px;
         }
 
-        #gallery {
-            background-color: #e0f7fa;
-            font-family: 'Comic Sans MS', cursive, sans-serif;
+        #contact p {
+            font-size: 1.2em;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Hi MaraMate</h1>
+        <h1>MaraMate</h1>
         <p>Your AI assistant for a blessed journey</p>
     </header>
 
     <nav>
         <a href="#about">About</a>
         <a href="#bishop">Bishop</a>
-        <a href="#contact">Contact</a>
         <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
     </nav>
 
-    <div class="hero-images">
-            <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%209.jpg?raw=true" alt="Convention Crowd">
-        </div>
+    <div class="hero">
         <div class="hero-text">
             <h1>Welcome to MaraMate</h1>
             <p>Your Virtual Assistant: MaraMate</p>
+        </div>
     </div>
 
     <div class="container">
@@ -238,52 +211,27 @@
             </div>
         </section>
 
-        <section id="contact" class="section">
-            <center><h2>Contact Us</h2></center>
-            <p><strong>Email:</strong> example@info.com</p>
-            <p><strong>Phone:</strong> +91 12345 67890</p>
-            <p><strong>Address:</strong> Maramon Convention, Kerala, India</p>
-        </section>
-
         <section id="gallery" class="section">
             <center><h2>Gallery</h2></center>
-            <p>Explore the key moments of the Maramon Convention.</p>
             <div class="hero">
                 <div class="hero-images">
-                    <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%209.jpg?raw=true" alt="Convention Crowd">
+                    <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%209.jpg?raw=true" alt="Convention Crowd" class="active">
                     <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%202.jpg?raw=true" alt="Key Moments">
                     <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%203.jpg?raw=true" alt="Key Moments">
                     <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%204.jpg?raw=true" alt="Scenic View of Maramon">
                     <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%201.jpg?raw=true" alt="Key Moments">
                     <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%2010.jpg?raw=true" alt="Scenic View of Maramon">
                 </div>
-                <!-- Navigation arrows -->
                 <div class="arrow left-arrow" onclick="moveSlide(-1)">&#10094;</div>
                 <div class="arrow right-arrow" onclick="moveSlide(1)">&#10095;</div>
             </div>
         </section>
 
-        <section id="content" role="main">
-            <div class="welcome-outer">
-                <div class="container">
-                    <div class="wrapper">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="welcome-inner">
-                                    <div class="common-header">
-                                        <center><h3>Malankara Mar Thoma Syrian Church</h3></center>
-                                        <span><img src="https://marthoma.in/wp-content/themes/marthoma-new/images/blue-arrow.png" alt="images"></span>
-                                    </div>
-                                    <p style="text-align: justify;">Our Church, we  believe to, have been founded by Saint Thomas (Mar Thoma), one of the twelve disciples of Jesus Christ, and known by the name of the Apostle, in the year AD 52, Mar Thoma Syrian Church of Malabar is one of the oldest denominations of Christianity. The Church defines itself as &#8220;Apostolic in origin, Universal in nature, Biblical in faith, Evangelical in principle, Ecumenical in outlook, Oriental in worship, Democratic in function, and Episcopal in character. Headquartered at Thiruvalla, Kerala,India, the church has over 1.6 million (approx) followers across the globe.</p>
-                                    <div class="read-more-outer">
-                                        <a href="https://marthoma.in/the-church/overview/" class="read-more">Read More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <section id="contact" class="section">
+            <center><h2>Contact Us</h2></center>
+            <p><strong>Email:</strong> example@info.com</p>
+            <p><strong>Phone:</strong> +91 12345 67890</p>
+            <p><strong>Address:</strong> Maramon Convention, Kerala, India</p>
         </section>
     </div>
 
@@ -304,29 +252,21 @@
         const slides = document.querySelectorAll('.hero-images img');
 
         function showSlide() {
-            // Remove 'active' class from all images
             slides.forEach(slide => slide.classList.remove('active'));
-
-            // Add 'active' class to the current image
             slides[index].classList.add('active');
         }
 
         function moveSlide(step) {
             index += step;
-
-            // Loop through images
             if (index >= slides.length) {
-                index = 0; // Go back to the first image
+                index = 0;
             } else if (index < 0) {
-                index = slides.length - 1; // Go to the last image
+                index = slides.length - 1;
             }
-
-        showSlide();
+            showSlide();
         }
 
-        // Initially display the first image
         showSlide();
     </script>
-
 </body>
 </html>
