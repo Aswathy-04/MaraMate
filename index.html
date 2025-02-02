@@ -24,26 +24,164 @@
             color: #fff;
             padding: 20px 0;
             text-align: center;
-            position: relative;
-        }
-
-        .logo {
-            position: absolute;
-            top: 10px;
-            left: 20px;
-            width: 100px; /* Increased size */
-            height: auto;
         }
 
         header h1 {
             font-size: 3em;
             margin: 0;
         }
+
+        header p {
+            font-size: 1.2em;
+            margin: 5px 0 0 0;
+            font-style: italic;
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+            position: sticky;
+            top: 0;
+        }
+
+        nav a {
+            color: #fff;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            font-family: 'Verdana', sans-serif;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        /* Hero Section with Image and Text */
+        .hero {
+            position: relative;
+            height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('https://github.com/Aswathy-04/MaraMate/blob/main/pro9.jpg?raw=true');
+            background-size: cover;
+            background-position: center;
+            color: #381601;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+
+        .hero p {
+            font-size: 1.5em;
+        }
+
+        /* Section Styling */
+        .container {
+            padding: 20px;
+            flex-grow: 1;
+            overflow: auto;
+        }
+
+        .section {
+            background-color: rgba(255, 255, 255, 0.8);
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Hero Image Slider */
+        .hero-images {
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-images img {
+            width: 100%; /* Make the width 100% of its container */
+            height: auto; /* Adjust the height to maintain the aspect ratio */
+            object-fit: contain; /* Ensure the image maintains its aspect ratio */
+            max-height: 400px; /* Limit the height to avoid stretching */
+            transition: opacity 1s ease-in-out;
+            opacity: 0;
+        }
+
+        .hero-images img.active {
+            opacity: 1;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            font-size: 2em;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .left-arrow {
+            left: 10px;
+        }
+
+        .right-arrow {
+            right: 10px;
+        }
+
+        /* Bishop Section with Bubble */
+        .leader {
+            display: flex;
+            align-items: center;
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .leader img {
+            width: 150px;
+            height: 210px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-right: 20px;
+        }
+
+        .leader-info h3 {
+            margin-top: 0;
+        }
+
+        .leader-info p {
+            font-size: 1.1em;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: auto; /* Push footer to the bottom */
+        }
+
+        /* Contact Section */
+        #contact {
+            text-align: center;
+            padding: 20px;
+        }
+
+        #contact p {
+            font-size: 1.2em;
+        }
     </style>
 </head>
 <body>
     <header>
-        <img src="https://github.com/Aswathy-04/MaraMate/blob/main/logo.png?raw=true" alt="MaraMate Logo" class="logo">
         <h1>MaraMate</h1>
     </header>
 
