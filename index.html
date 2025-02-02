@@ -66,52 +66,6 @@
         nav a:hover {
             background-color: #555;
         }
-
-        /* Hero Section with Image and Text */
-        .hero {
-            position: relative;
-            height: 60vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-image: url('https://github.com/Aswathy-04/MaraMate/blob/main/pro9.jpg?raw=true');
-            background-size: cover;
-            background-position: center;
-            color: #381601;
-        }
-
-        .hero h1 {
-            font-size: 3em;
-            margin: 0;
-        }
-
-        .hero p {
-            font-size: 1.5em;
-        }
-
-        /* Section Styling */
-        .container {
-            padding: 20px;
-            flex-grow: 1;
-            overflow: auto;
-        }
-
-        .section {
-            background-color: rgba(255, 255, 255, 0.8);
-            margin: 20px 0;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Footer */
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-            margin-top: auto;
-        }
     </style>
 </head>
 <body>
@@ -139,15 +93,39 @@
             <center><h2>About Us</h2></center>
             <p>Learn more about MaraMate and how it enhances your Maramon Convention experience.</p>
         </section>
+
+        <section id="bishop" class="section">
+            <center><h2>Bishop</h2></center>
+            <div class="leader">
+                <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%207.jpg?raw=true" alt="Church Leader">
+                <div class="leader-info">
+                    <h3>His Grace The Most Rev. Dr. Theodosius Mar Thoma Metropolitan</h3>
+                    <p><strong>Title:</strong> Metropolitan</p>
+                    <p><strong>Biography:</strong> Mar Theodosius, the 22nd Mar Thoma Metropolitan, was consecrated as Episcopa in 1989 and has led various dioceses, including Niranam-Maramon. He was [...]</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="section">
+            <center><h2>Gallery</h2></center>
+            <div class="hero">
+                <div class="hero-images">
+                    <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%202.jpg?raw=true" alt="Key Moments" class="active">
+                    <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%209.jpg?raw=true" alt="Scenic View of Maramon">
+                    <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%204.jpg?raw=true" alt="Scenic View of Maramon">
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <center><h2>Contact Us</h2></center>
+            <p><strong>Email:</strong> example@info.com</p>
+            <p><strong>Phone:</strong> +91 12345 67890</p>
+            <p><strong>Address:</strong> Maramon Convention, Kerala, India</p>
+        </section>
     </div>
 
-    <!-- Dialogflow Messenger -->
-    <df-messenger
-        intent="WELCOME"
-        chat-title="MaraMate"
-        agent-id="ca885922-8572-47c4-b26d-d9905dac8104"
-        language-code="en">
-    </df-messenger>
+    <df-messenger intent="WELCOME" chat-title="MaraMate" agent-id="ca885922-8572-47c4-b26d-d9905dac8104" language-code="en"></df-messenger>
 
     <footer>
         <p>&copy; 2025 Maramon Convention. All rights reserved.</p>
