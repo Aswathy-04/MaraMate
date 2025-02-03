@@ -210,6 +210,98 @@
         #contact p {
             font-size: 1.2em;
         }
+        /* General responsiveness for smaller screens */
+        @media (max-width: 768px) {
+        /* Header */
+            header h1 {
+            font-size: 2em; /* Adjust header font size for smaller screens */
+            }
+    
+            header p {
+                font-size: 1em;
+            }
+    
+            .logo {
+                width: 150px; /* Reduce logo size for mobile */
+            }
+
+            /* Navigation Bar */
+            nav {
+                flex-direction: column; /* Stack links vertically */
+                padding: 10px 0;
+            }
+
+            nav a {
+                padding: 10px 0;
+                font-size: 1.1em; /* Adjust text size */
+            }
+
+            /* Hero Section */
+            .hero {
+                height: 50vh; /* Adjust height for smaller screens */
+            }
+
+            .hero h1 {
+                font-size: 2.5em; /* Reduce font size */
+            }
+
+            .hero p {
+                font-size: 1.2em; /* Reduce font size */
+            }
+
+            /* Section Styling */
+            .container {
+                padding: 10px;
+            }
+
+            .section {
+                margin: 10px 0;
+                padding: 10px;
+            }
+
+            /* Hero Image Slider */
+            .hero-images img {
+                max-height: 250px; /* Adjust image height */
+            }
+
+            /* Overview and Leader sections */
+            .overview, .leader {
+                flex-direction: column; /* Stack images and text */
+                text-align: center;
+            }
+
+            .overview img, .leader img {
+                width: 100%; /* Make images full width */
+                height: auto;
+                margin-bottom: 10px;
+            }
+
+            .overview-info, .leader-info {
+                padding: 10px;
+            }
+
+            /* Footer */
+            footer {
+                font-size: 0.9em;
+                padding: 20px;
+            }
+        }
+
+        /* Larger screens - Additional adjustments */
+        @media (min-width: 769px) {
+            .hero {
+                height: 60vh; /* Keep original height for larger screens */
+            }
+
+            .hero h1 {
+                font-size: 3em;
+            }
+
+            .hero p {
+                font-size: 1.5em;
+            }
+        }
+
     </style>
 </head>
 <body>
