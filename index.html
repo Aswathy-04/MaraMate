@@ -17,154 +17,204 @@
             flex-direction: column;
             min-height: 100vh;
         }
-        
         .logo {
             position: absolute;
-            top: 10px;
-            left: 10px;
-            width: 200px;
+            top: 20px;
+            left: 20px;
+            width: 250px; /* Adjust for bigger size */
             height: auto;
         }
-        
         /* Header */
         header {
             background-color: rgba(0, 0, 0, 0.7);
             color: #fff;
-            padding: 20px;
+            padding: 20px 0;
             text-align: center;
         }
-        
+
         header h1 {
-            font-size: 2.5em;
+            font-size: 3em;
             margin: 0;
         }
-        
+
+        header p {
+            font-size: 1.2em;
+            margin: 5px 0 0 0;
+            font-style: italic;
+        }
+
         /* Navigation Bar */
         nav {
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
             background-color: #444;
             position: sticky;
             top: 0;
         }
-        
+
         nav a {
             color: #fff;
-            padding: 10px 15px;
+            padding: 14px 20px;
             text-decoration: none;
+            text-align: center;
             font-family: 'Verdana', sans-serif;
         }
-        
+
         nav a:hover {
             background-color: #555;
         }
-        
-        /* Hero Section */
+
+        /* Hero Section with Image and Text */
         .hero {
             position: relative;
-            height: 50vh;
+            height: 60vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            text-align: center;
             background-image: url('https://github.com/Aswathy-04/MaraMate/blob/main/pro9.jpg?raw=true');
             background-size: cover;
             background-position: center;
-            color: #fff;
-            padding: 20px;
+            color: #381601;
         }
-        
+
         .hero h1 {
-            font-size: 2em;
+            font-size: 3em;
+            margin: 0;
         }
-        
+
         .hero p {
-            font-size: 1.2em;
+            font-size: 1.5em;
         }
-        
-        /* Sections */
+
+        /* Section Styling */
         .container {
             padding: 20px;
             flex-grow: 1;
+            overflow: auto;
         }
-        
+
         .section {
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(255, 255, 255, 0.8);
             margin: 20px 0;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        
-        /* Responsive Flex Layouts */
-        .overview, .leader {
+
+        /* Hero Image Slider */
+        .hero-images {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
-        }
-        
-        .overview img, .leader img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 5px;
-        }
-        
-        /* Gallery */
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
             justify-content: center;
-            gap: 10px;
+            overflow: hidden;
         }
-        
-        .gallery img {
-            width: 100%;
-            max-width: 400px;
-            height: auto;
+
+        .hero-images img {
+            width: 100%; /* Make the width 100% of its container */
+            height: auto; /* Adjust the height to maintain the aspect ratio */
+            object-fit: contain; /* Ensure the image maintains its aspect ratio */
+            max-height: 400px; /* Limit the height to avoid stretching */
+            transition: opacity 1s ease-in-out;
+            opacity: 0;
+        }
+
+        .hero-images img.active {
+            opacity: 1;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            font-size: 2em;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .left-arrow {
+            left: 10px;
+        }
+
+        .right-arrow {
+            right: 10px;
+        }
+
+        /* Overview Section with Bubble */
+        .overview {
+            display: flex;
+            align-items: center;
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .overview img {
+            width: 150px;
+            height: 210px;
+            object-fit: cover;
             border-radius: 5px;
+            margin-right: 20px;
         }
-        
+
+        .overview-info h3 {
+            margin-top: 0;
+        }
+
+        .overview-info p {
+            font-size: 1.1em;
+        }
+
+        /* Bishop Section with Bubble */
+        .leader {
+            display: flex;
+            align-items: center;
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .leader img {
+            width: 150px;
+            height: 210px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-right: 20px;
+        }
+
+        .leader-info h3 {
+            margin-top: 0;
+        }
+
+        .leader-info p {
+            font-size: 1.1em;
+        }
+
         /* Footer */
         footer {
             background-color: #333;
             color: #fff;
             text-align: center;
             padding: 10px 0;
+            margin-top: auto; /* Push footer to the bottom */
         }
-        
-        /* Responsive Design */
-        @media (min-width: 768px) {
-            .overview, .leader {
-                flex-direction: row;
-                text-align: left;
-            }
-            
-            .overview img, .leader img {
-                margin-right: 20px;
-            }
+
+        /* Contact Section */
+        #contact {
+            text-align: center;
+            padding: 20px;
         }
-        
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2em;
-            }
-            
-            .hero h1 {
-                font-size: 1.8em;
-            }
-            
-            nav a {
-                padding: 10px;
-                font-size: 0.9em;
-            }
+
+        #contact p {
+            font-size: 1.2em;
         }
     </style>
 </head>
 <body>
     <header>
+        <img src="https://github.com/Aswathy-04/MaraMate/blob/main/logo-pdf_page-0001.jpg?raw=true" alt="Logo" class="logo">
         <h1>MaraMate</h1>
     </header>
 
@@ -177,43 +227,95 @@
     </nav>
 
     <div class="hero">
-        <h1>Welcome to MaraMate</h1>
-        <p>Your AI assistant for a blessed journey</p>
+        <div class="hero-text">
+            <h1>Welcome to MaraMate</h1>
+            <p>Your AI assistant for a blessed journey</p>
+        </div>
     </div>
 
     <div class="container">
         <section id="about" class="section">
-            <h2>About Us</h2>
-            <p>MaraMate is the official chatbot assistant for the Maramon Convention, providing event details, location information, and historical insights.</p>
+            <center><h2>About Us</h2></center>
+            <p>MaraMate is the official chatbot assistant for the Maramon Convention, the largest Christian gathering in Asia. Whether you need details on the schedule, location, transportation, or nearby stay options, MaraMate is here to help. It also provides insights into the convention’s history, significance, and key landmarks. Designed for easy access to essential information, MaraMate ensures a seamless experience for all attendees.</p>
         </section>
 
         <section id="overview" class="section">
-            <h2>Overview</h2>
+            <center><h2>Overview</h2></center>
             <div class="overview">
+                <div class="overview-info">
+                    <p>The Malankara Mar Thoma Syrian Church (Mar Thoma Church) is an ancient Christian church tracing its origins to St. Thomas, the disciple of Jesus, who is believed to have established it in AD 52 on the Malabar coast (now Kerala). The Church follows Episcopal heritage with a democratic administration and upholds the Holy Bible and the Nicene Creed as its doctrinal foundation.
+                       As a ‘bridge’ church in the ecumenical world, it seeks to uphold divine doctrines, nurture spiritual life through sacraments and the Word, and participate in Christ’s mission of reconciliation. The Metropolitan serves as the Supreme Head, supported by twelve Bishops and over 1,100 clergy across fourteen dioceses, ministering to 1.6 million believers worldwide. The Church headquarters is in Thiruvalla, Kerala.</p>
+                </div>
                 <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%208.jpg?raw=true" alt="Church Leader">
-                <p>The Malankara Mar Thoma Syrian Church traces its origins to St. Thomas and continues its mission worldwide.</p>
             </div>
         </section>
 
         <section id="bishop" class="section">
-            <h2>Bishop</h2>
+            <center><h2>Bishop</h2></center>
             <div class="leader">
                 <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%207.jpg?raw=true" alt="Church Leader">
-                <p>His Grace The Most Rev. Dr. Theodosius Mar Thoma Metropolitan serves as the 22nd Metropolitan.</p>
+                <div class="leader-info">
+                    <h3>His Grace The Most Rev. Dr. Theodosius Mar Thoma Metropolitan</h3>
+                    <p><strong>Title:</strong> Metropolitan</p>
+                    <p><strong>Biography:</strong> Mar Theodosius studied at Baselious College, Kottayam (1966) and Mar Thoma College, Thiruvalla (1969). He earned a Science degree, a BD from Leonard Theological College (1972), and later an MA and PhD from McMaster University, Canada (1980-1986). Ordained as ‘Kasseesa’ on February 24, 1973, he studied Comparative Religions at Viswa Bharathi University (1979-1980).
+                                                   Consecrated as Episcopa on December 9, 1989, he led various dioceses, including Kunnamkulam-Madras, Chennai-Bangalore, Malaysia-Singapore-Australia, and North America-Europe. In 2020, he was titled The Suffragan Metropolitan (July 12) and later installed as the 22nd Mar Thoma Metropolitan (November 14).</p>
+                </div>
             </div>
         </section>
 
         <section id="gallery" class="section">
-            <h2>Gallery</h2>
-            <div class="gallery">
-                <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%202.jpg?raw=true" alt="Event Scene">
-                <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%209.jpg?raw=true" alt="Scenic View">
+            <center><h2>Gallery</h2></center>
+            <div class="hero">
+                <div class="hero-images">
+                    <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%202.jpg?raw=true" alt="Key Moments" class="active">
+                    <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%209.jpg?raw=true" alt="Scenic View of Maramon" class="active">
+                    <img src="https://github.com/Aswathy-04/MaraMate/blob/main/pro%204.jpg?raw=true" alt="Scenic View of Maramon" class="active">
+                </div>
+                <div class="arrow left-arrow" onclick="moveSlide(-1)">&#10094;</div>
+                <div class="arrow right-arrow" onclick="moveSlide(1)">&#10095;</div>
             </div>
         </section>
+
+        <section id="contact" class="section">
+            <center><h2>Contact Us</h2></center>
+            <p><strong>Email:</strong> example@info.com</p>
+            <p><strong>Phone:</strong> +91 12345 67890</p>
+            <p><strong>Address:</strong> Maramon Convention, Kerala, India</p>
+        </section>
     </div>
+
+    <!-- Dialogflow Messenger -->
+    <df-messenger
+        intent="WELCOME"
+        chat-title="MaraMate"
+        agent-id="ca885922-8572-47c4-b26d-d9905dac8104"
+        language-code="en">
+    </df-messenger>
 
     <footer>
         <p>&copy; 2025 Maramon Convention. All rights reserved.</p>
     </footer>
+
+    <script>
+        let index = 0;
+        const slides = document.querySelectorAll('.hero-images img');
+
+        function showSlide() {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[index].classList.add('active');
+        }
+
+        function moveSlide(step) {
+            index += step;
+            if (index >= slides.length) {
+                index = 0;
+            } else if (index < 0) {
+                index = slides.length - 1;
+            }
+            showSlide();
+        }
+
+        showSlide();
+    </script>
 </body>
 </html>
