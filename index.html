@@ -408,6 +408,15 @@
         }
 
         showSlide();
+        window.onload = function() {
+    // Wait for the Dialogflow Messenger widget to load
+            setTimeout(() => {
+                const dfMessenger = document.querySelector('df-messenger');
+                if (dfMessenger) {
+                    dfMessenger.setAttribute('open', 'true'); // Automatically open the chat window
+                }
+            }, 1000); // Delay to ensure the element is available
+        };
     </script>
 </body>
 </html>
