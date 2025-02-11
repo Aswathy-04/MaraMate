@@ -409,13 +409,12 @@
 
         showSlide();
         window.addEventListener("load", function () {
-            const checkMessenger = setInterval(() => {
+            setTimeout(() => {
               const dfMessenger = document.querySelector("df-messenger");
               if (dfMessenger) {
-                dfMessenger.setAttribute("open", "true");
-                clearInterval(checkMessenger); // Stop checking once found
+                dfMessenger.shadowRoot.querySelector("df-messenger-chat").setAttribute("open", "true");
               }
-            }, 500); // Check every 500ms until it's available
+            }, 2000); // Delay ensures widget is fully loaded
           });
     </script>
 </body>
